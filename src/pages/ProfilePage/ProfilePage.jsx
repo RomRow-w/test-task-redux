@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 export default function ProfilePage() {
-  const login = useSelector(store => store.login.userInput.login)
+  const state = useSelector(store => store.login);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!state.isLoggedIn) navigate('/')
+  },[state,navigate])
+
+
   return (
     <div>
-      <h1>Ваш логин: {login}</h1>
+      <h1>Ваш логин: {state.userInput.login}</h1>
     </div>
   )
-}
+} 

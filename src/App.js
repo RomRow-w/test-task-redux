@@ -1,16 +1,12 @@
 
-import LoginPage from './pages/LoginPage/LoginPage';
-// import ProfilePage from './pages/ProfilePage/ProfilePage';
+import { RouterProvider } from 'react-router-dom';
+import router from './router/router';
 
 function App() {
   return (
-    // <div className="App">
-      <LoginPage />
-      // <ProfilePage />
-    // </div>
+    <RouterProvider router={router} />
   );
 }
-
 
 
 export default App;

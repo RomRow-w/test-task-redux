@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import TextInput from "../../components/UI/TextInput/TextInput";
 import { inpChange, isLoggedIn } from "../../store/loginSlice";
 import cl from "./LoginPage.module.css";
@@ -26,7 +27,9 @@ export default function LoginPage() {
           value={inputState.password}
           onChange={(e) => dispatch(inpChange({ password: e.target.value }))}
         />
-        <button className={cl.loginForm_btn} disabled={!passwordMatch}>Войти</button>
+        <Link to="/profile">
+          <button className={cl.loginForm_btn} disabled={!passwordMatch}>Войти</button>
+        </Link>
       </form>
     </div>
   );
